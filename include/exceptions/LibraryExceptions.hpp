@@ -53,4 +53,11 @@ public:
         :LibraryException(message) {}
 };
 
+class InvalidRatingException : public LibraryException
+{
+public:
+    explicit InvalidRatingException(const std::string& message)
+        :LibraryException(message) {}
+};
+
 #endif
