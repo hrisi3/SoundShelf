@@ -20,6 +20,8 @@ public:
     int getTrackNumber() const { return trackNumber; }
     int getReleaseYear() const { return releaseYear; }
 
+    virtual std::string serialize() const override;
+
 private:
     std::string albumName;
     int trackNumber; // позиция в албума

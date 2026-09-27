@@ -20,6 +20,8 @@ public:
     int getEpisodeNumber() const { return episodeNumber; }
     Date getReleaseDate() const { return releaseDate; }
 
+    virtual std::string serialize() const override;
+
 private:
 // host e creator
     std::string showName;

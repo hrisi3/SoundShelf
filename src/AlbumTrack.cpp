@@ -27,3 +27,9 @@ bool AlbumTrack::matchesSearch(const std::string &query) const
 {
     return AudioItem::matchesSearch(query) || toLower(albumName).find(toLower(query)) != std::string::npos;
 }
+
+std::string AlbumTrack::serialize() const
+{
+    return "ALBUM|"  + getTitle() + "|" + getCreator() + "|" + std::to_string(getDuration()) +
+           "|" + std::to_string(static_cast<int>(getGenre())) + "|" + getAlbumName() + "|" + std::to_string(getTrackNumber()) + "|" + std::to_string(getReleaseYear());
+}

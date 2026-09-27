@@ -1,6 +1,7 @@
 #include "PodcastEpisode.hpp"
 #include <iostream>
 #include "utils.hpp"
+//#include "Date.hpp"
 
 PodcastEpisode::PodcastEpisode(std::string title, std::string artist, double duration, Genre genre,  std::string showName, int episodeNum, Date releaseD)
     :AudioItem(title,artist,duration,genre), showName(showName), episodeNumber(episodeNum), releaseDate(releaseD)
@@ -28,3 +29,10 @@ bool PodcastEpisode::matchesSearch(const std::string &query) const
    return AudioItem::matchesSearch(query) || toLower(showName).find(toLower(query)) != std::string::npos;
 }
 
+std::string PodcastEpisode::serialize() const
+{
+    return "PODCAST|" + getTitle() + "|" + getCreator() + "|" + 
+    std::to_string(getDuration()) + "|" + std::to_string(static_cast<int>(getGenre())) + 
+    "|" + getShowName() + "|" + std::to_string(getEpisodeNumber()) + "|" + std::to_string(getReleaseDate().getDay()) + 
+    "|" + std::to_string(getReleaseDate().getMonth()) + "|" + std::to_string(getReleaseDate().getYear());
+}

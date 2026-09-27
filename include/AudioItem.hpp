@@ -37,6 +37,8 @@ public:
     virtual std::string getTypeLabel() const = 0;
     virtual bool matchesSearch(const std::string &query) const;
 
+    virtual std::string serialize() const = 0;
+
 private:
     std::string title;
     std::string creator;

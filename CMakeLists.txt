@@ -9,7 +9,7 @@ include_directories(include)
 
 # всички .cpp-та в src/, БЕЗ main.cpp - ще ни трябват за двете цели
 # като добавям нови .сpp ги хваща автоматично при следващия cmake --build build
-file(GLOB ALL_SOURCES "src/*.cpp")
+file(GLOB_RECURSE ALL_SOURCES CONFIGURE_DEPENDS "src/*.cpp")
 list(REMOVE_ITEM ALL_SOURCES "${CMAKE_SOURCE_DIR}/src/main.cpp")
 
 # основното приложение
